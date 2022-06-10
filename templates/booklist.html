@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+{% block body %}
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+            <td>Full Name</td>
+            <td>Mobile No</td>
+            <td>Position</td>
+            <td>
+                <a href="{% url 'EmpForm' %}" class="btn btn-outline-success">
+
+                    <i class="fas fa-plus">Add New</i>
+                </a>
+            </td>
+
+            {% comment %} <td>EMP Code</td> {% endcomment %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for emp in emplist %}
+        <tr>
+            <td>{{emp.fullname}}</td>
+            <td>{{emp.mobile}}</td>
+            <td>{{emp.position}}</td>
+            {% comment %} <td>{{emp.emp_code}}</td> {% endcomment %}
+            <td>
+                <a href="{% url 'EmpUpdate' emp.id %}" class="btn text-secondary px-0">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </a>
+                <form action="{% url 'EmpDelete' emp.id %}" method="post" class="d-inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn">
+                        <i class="fa-solid fa-trash-can text-danger"></i>
+                    </button>
+
+                </form>
+                <td>
+        </tr>
+        
+        
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock body %}
