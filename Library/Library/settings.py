@@ -58,7 +58,7 @@ ROOT_URLCONF = 'Library.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / r'C:\Users\prathamesh\OneDrive\Desktop\Keywordio\templates',],
+        'DIRS': [BASE_DIR / r'C:\Users\prathamesh\OneDrive\Desktop\Keywordio\Library\templates',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

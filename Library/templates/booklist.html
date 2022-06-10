@@ -3,31 +3,31 @@
 <table class="table table-borderless">
     <thead class="border-bottom font-weight-bold">
         <tr>
-            <td>Full Name</td>
-            <td>Mobile No</td>
-            <td>Position</td>
+            <td>Book Name</td>
+            <td>Book Author</td>
+            <td>Book Price</td>
             <td>
-                <a href="{% url 'EmpForm' %}" class="btn btn-outline-success">
+                <a href="{% url 'BOOK_fORM' %}" class="btn btn-outline-success">
 
                     <i class="fas fa-plus">Add New</i>
                 </a>
             </td>
 
-            {% comment %} <td>EMP Code</td> {% endcomment %}
+         
         </tr>
     </thead>
     <tbody>
-        {% for emp in emplist %}
+        {% for books in booklist %}
         <tr>
-            <td>{{emp.fullname}}</td>
-            <td>{{emp.mobile}}</td>
-            <td>{{emp.position}}</td>
-            {% comment %} <td>{{emp.emp_code}}</td> {% endcomment %}
+            <td>{{books.BookName}}</td>
+            <td>{{books.BookAuthorname}}</td>
+            <td>{{books.BookPrice}}</td>
+           
             <td>
-                <a href="{% url 'EmpUpdate' emp.id %}" class="btn text-secondary px-0">
+                <a href="{% url 'BOOK_UPDATE' books.id %}" class="btn text-secondary px-0">
                     <i class="fa-solid fa-pen-to-square"></i>
                 </a>
-                <form action="{% url 'EmpDelete' emp.id %}" method="post" class="d-inline">
+                <form action="{% url 'BOOK_DELETE' books.id %}" method="post" class="d-inline">
                     {% csrf_token %}
                     <button type="submit" class="btn">
                         <i class="fa-solid fa-trash-can text-danger"></i>
