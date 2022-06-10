@@ -7,7 +7,7 @@
             <td>Book Author</td>
             <td>Book Price</td>
             <td>
-                <a href="{% url 'BOOK_fORM' %}" class="btn btn-outline-success">
+                <a href="{% url 'BOOKfORM' %}" class="btn btn-outline-success">
 
                     <i class="fas fa-plus">Add New</i>
                 </a>
@@ -24,10 +24,10 @@
             <td>{{books.BookPrice}}</td>
            
             <td>
-                <a href="{% url 'BOOK_UPDATE' books.id %}" class="btn text-secondary px-0">
+                <a href="{% url 'BOOKUPDATE' books.id %}" class="btn text-secondary px-0">
                     <i class="fa-solid fa-pen-to-square"></i>
                 </a>
-                <form action="{% url 'BOOK_DELETE' books.id %}" method="post" class="d-inline">
+                <form action="{% url 'BOOKDELETE' books.id %}" method="post" class="d-inline">
                     {% csrf_token %}
                     <button type="submit" class="btn">
                         <i class="fa-solid fa-trash-can text-danger"></i>

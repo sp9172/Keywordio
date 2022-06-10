@@ -26,7 +26,7 @@ def book_form(request,id=0):
             form.save()
 
        
-        return redirect('booklist')
+        return redirect('BOOKLIST')
 
 def index(request):
     return render(request,'main.html')
@@ -43,4 +43,4 @@ def book_list(request):
 def book_delete(request,id):
     bk=Book.objects.get(pk=id)
     bk.delete()
-    return redirect('booklist')
+    return redirect('BOOKLIST')
