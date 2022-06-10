@@ -7,9 +7,15 @@
             <td>Book Author</td>
             <td>Book Price</td>
             <td>
+                {% if perms.management.add_permission %}
                 <a href="{% url 'BOOKfORM' %}" class="btn btn-outline-success">
 
                     <i class="fas fa-plus">Add New</i>
+                </a>
+                {% endif %}
+                <a href="{% url 'LOGOUT' %}" class="btn btn-outline-danger">
+
+                    <i class="fas fa-plus">LogOut</i>
                 </a>
             </td>
 
@@ -24,9 +30,12 @@
             <td>{{books.BookPrice}}</td>
            
             <td>
+                {% if perms.management.change_logentry %}
                 <a href="{% url 'BOOKUPDATE' books.id %}" class="btn text-secondary px-0">
                     <i class="fa-solid fa-pen-to-square"></i>
                 </a>
+                {% endif %}
+                {% if perms.managemetn.delete_permission %}
                 <form action="{% url 'BOOKDELETE' books.id %}" method="post" class="d-inline">
                     {% csrf_token %}
                     <button type="submit" class="btn">
@@ -34,6 +43,7 @@
                     </button>
 
                 </form>
+                {% endif %}
                 <td>
         </tr>
         

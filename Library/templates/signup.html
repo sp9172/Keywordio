@@ -4,7 +4,7 @@
 
 
 {% block body %}
-<form action="" method="post" autocomplete="off">
+<form action="" method="post" autocomplete="off" novalidate>
     {% csrf_token %}
 {% comment %} {{form.login|as_crispy_field}}
 {{form.password|as_crispy_field}} {% endcomment %}
@@ -16,9 +16,20 @@
 </div>
 
 </div> {% endcomment %}
-{{form.as_p}}
-<button type="submit" class="btn btn-success">Login</button>
-<a href="{% url 'UserS' %}" class="link-primary">Registraion if you dont have Account</a>
+{% for singup in form  %}
+
+{{singup.label_tag}} {{singup}} <small class="text-warning"> {{singup.errors|striptags}} </small>
+
+{% endfor %}
+<button type="submit" class="btn btn-success">Sign Up</button>
+{% if form.non_field_errors %}
+{% for error in form.non_field_errors  %}
+
+<p class="alert alter-danger my-3">{{error}}</p> 
+{% endfor %}
+
+
+{% endif %}
 
 
 </form>
