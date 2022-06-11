@@ -4,6 +4,11 @@
 
 
 {% block body %}
+<h6>After Finishing Registration click the Login Button and login with your credential </h6>
+<a href="{% url 'Homeindex' %}" class="btn btn-outline-danger">
+    <i class="fas fa-plus">Login</i>
+</a>
+
 <form action="" method="post" autocomplete="off" novalidate>
     {% csrf_token %}
 {% comment %} {{form.login|as_crispy_field}}
@@ -11,6 +16,8 @@
 {% comment %} <div class="row">
     <div class="col-md-4">
         <button type="submit" class="btn btn-success"><i class="fa-solid fa-database"></i>Submit</button>
+       
+
     </div>
     
 </div>
